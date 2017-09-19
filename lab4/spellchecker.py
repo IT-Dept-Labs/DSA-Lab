@@ -6,7 +6,7 @@ class Hashtable:
 	def insertk(self,k):
 		key=0
 		for i in range(len(k)-1,0,-1):
-			key=key+ord(k[i:i+1])*33
+			key=(key+ord(k[i:i+1]))*33
 		key=key+ord(k[0])
 		key=key%30
 
