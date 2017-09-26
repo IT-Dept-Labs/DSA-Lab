@@ -42,9 +42,9 @@ class Hashtable:
 
 				tmp=tmp.next
 			if tmp.value==k:
-				return("Valid")
-			else:
 				return("Invalid")
+			else:
+				return("valid")
 
 
 	def keys(self):
@@ -72,18 +72,15 @@ class ListNode:
 
 def main():
 	H=Hashtable()
-	f=open("small.dict","r")
+	f=open("ispell.dict","r")
 	con=f.readlines()
 	con=[x.strip() for x in con]
 	for i in range(len(con)):
                 H.insertk(con[i])
-	word=input("Enter a String: ")
-	f1=open("ispell.dict","r")
-	inp=f1.readlines()
-	inp=[x.strip() for x in inp]
-	for i in inp:
-		print(H.search(i.lower()))
-	
+	text=input("Enter a String: ")
+	print(H.search(text))
+
+
 if __name__ == '__main__':
 	main()
 

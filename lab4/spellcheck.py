@@ -78,7 +78,8 @@ def main():
 	
 	for i in range(0,len(con)):
 		H.insertk(con[i])
-	print(H.search("fsdfs"))
+	text = input("Enter a String: ")
+	print(H.search(text))
 	
 
 
