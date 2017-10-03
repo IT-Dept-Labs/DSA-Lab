@@ -8,10 +8,10 @@ class TreeNode:
 		self.left=None
 
 	def getLeft(self):
-		return self.left.val
+		return self.left
 
 	def getRight(self):
-		return self.right.val
+		return self.right
 
 	def getRootVal(self):
 		return self.val
@@ -86,6 +86,17 @@ def evaluate(trav):
 		return trav.getRootVal()
 
 
+def postordereval(tree): 
+	opers = {'+':operator.add, '-':operator.sub, '*':operator.mul, '/':operator.truediv} 
+	res1 = None 
+	res2 = None 
+	if tree: 
+		res1 = postordereval(tree.getLeft()) 
+		res2 = postordereval(tree.getRight()) 
+		if res1 and res2: 
+			return opers[tree.getRootVal()](int(res1),int(res2))
+		else: 
+			return tree.getRootVal()
 
 
 
@@ -97,7 +108,8 @@ def main():
 	printPostFix(pt.root)
 	print()
 	#print(pt.root.left.right.val)
-	evaluate(pt.root)
+	#evaluate(pt.root)
+	print(postordereval(pt.root))
 
 if __name__ == '__main__':
 	main()
