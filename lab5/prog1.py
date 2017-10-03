@@ -27,7 +27,6 @@ class BinSearchTree:
 	def insert(self,val):
 		node=TreeNode(val)
 		temp=self.root
-		#prev=temp
 		#flag is used to decide the which child is the new node
 		#if flag is 0 then new node is left child of temp else it is the right child 
 		flag=0

@@ -33,7 +33,13 @@ class Parsetree:
 				curr=temp
 			#print(curr.left)
 			#print(i)
-			if i in ['+', '-', '*', '/']:
+			if i=='+' or i=='-':
+				curr.val=i
+				temp=TreeNode('')
+				curr.right=temp
+				temp.parent=curr
+				curr=temp
+			if i=='*' or i=='/':
 				curr.val=i
 				temp=TreeNode('')
 				curr.right=temp
@@ -48,7 +54,7 @@ class Parsetree:
 				curr=curr.parent
 
 
-
+#-------------------* and / is treated as metacharacter add a \
 
 def printPrefix(trav):
 	if trav:
@@ -102,7 +108,8 @@ def postordereval(tree):
 
 def main():
 	pt=Parsetree()
-	pt.insert('((4+3)*(5-2))')
+	inp=input('Enter the paranthesised string: ')
+	pt.insert(inp)
 	printPrefix(pt.root)
 	print()
 	printPostFix(pt.root)
