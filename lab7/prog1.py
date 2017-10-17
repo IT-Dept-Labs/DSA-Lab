@@ -29,35 +29,63 @@ class BinaryHeap:
 		var=self.A[1]
 		self.A[1]=self.A[len(self.A)-1]
 		ret=self.A.pop()
-		heapify(self.A,1)
-		return ret
+		self.heapify(1)
+		return var
 
-	def buildHeap(self,V):
-		#heapify(V,1)
-		V.append(self.extractMax())
 
-def heapify(A,i):
-	child1=A[2*i]
-	child2=A[2*i+1]
-	while i<len(A)//2:
-		value=max(child1,child2)
-		if value>A[i]:
-			if value==child1:
-				t=A[i]
-				A[i]=A[2*i]
-				A[2*i]=t
-				i=2*i
-			else:
-				t=A[i]
-				A[i]=A[2*i+1]
-				A[2*i+1]=t
-				i=2*i+1
-			c=len(A)
-			if 2*i>=len(A):
-				break
-			else:
-				child1=A[2*i]
-				child2=A[2*i+1]
+	def heapify(self,i):
+		while i<len(self.A)//2:
+			child1=self.A[2*i]
+			child2=self.A[2*i+1]
+			value=max(child1,child2)
+			if value>self.A[i]:
+				if value==child1:
+					t=self.A[i]
+					self.A[i]=self.A[2*i]
+					self.A[2*i]=t
+					i=2*i
+				else:
+					t=self.A[i]
+					self.A[i]=self.A[2*i+1]
+					self.A[2*i+1]=t
+					i=2*i+1
+				c=len(self.A)
+				if 2*i>=len(self.A):
+					break
+				else:
+					child1=self.A[2*i]
+					child2=self.A[2*i+1]
+
+
+	def buildHeap(self,l):
+		p = len(l) + 1
+		m = [None] * p
+		a = 0
+		for i in range(1,p):
+			b = a + 1
+			m[b] = l[a]
+			a = a + 1
+		j = a
+		for i in range(a):
+			p = j
+			while True:
+				b = p//2
+				if b != 0 :
+					#print(m[b], m[p])
+					if m[b] < m[p]:
+						temp = m[b]
+						m[b] = m[p]
+						m[p] = temp
+						p = b
+						if b == 1:
+							j = j + 1
+					else:
+						break
+				else:
+					break
+			j = j - 1
+
+		print(m)
 
 
 
@@ -81,14 +109,16 @@ def main():
 	print(heap.A)
 
 	B=[20,35,45,78,15,21]
-
-	heap.buildHeap(B)
+	heap1=BinaryHeap()
+	heap1.buildHeap(B)
+	print()
 	#print(B[2])
 	"""heapify(B,1)
 	print(B)"""
 	print(heap.maximum())
+	
 
-	heap.extractMax()
+	print(heap.extractMax())
 
 	print(heap.A)
 
