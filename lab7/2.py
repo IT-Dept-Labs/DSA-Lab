@@ -19,7 +19,7 @@ class BinaryHeap:
 				p=q
 				q=p//2
 			else:
-				break	
+				break
 
 
 	def maximum(self):
@@ -50,7 +50,7 @@ class BinaryHeap:
 					self.A[2*i+1]=t
 					i=2*i+1
 				c=len(self.A)
-				if 2*i+1>=len(self.A):
+				if 2*i>=len(self.A):
 					break
 				else:
 					child1=self.A[2*i]
@@ -59,8 +59,9 @@ class BinaryHeap:
 def main():
 	h=BinaryHeap()
 	t=1
-	arr=[25,2,23,13,34,12]
-	for i in arr:
+    n=int(input("Enter n: "))
+    for i in range(n):
+        x=int(input("Enter element: "))
 		h.insert(i,t)
 		t+=1
 	for i in range(len(arr)-1,-1,-1):

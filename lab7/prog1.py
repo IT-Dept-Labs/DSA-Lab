@@ -50,7 +50,7 @@ class BinaryHeap:
 					self.A[2*i+1]=t
 					i=2*i+1
 				c=len(self.A)
-				if 2*i>=len(self.A):
+				if 2*i+1>=len(self.A):
 					break
 				else:
 					child1=self.A[2*i]
@@ -106,7 +106,7 @@ def main():
 		ele=int(input("Enter the element: "))
 		heap.insert(ele,t)
 		t+=1
-	print(heap.A)
+	print(heap.A,end="\n\n")
 
 	B=[20,35,45,78,15,21]
 	heap1=BinaryHeap()
