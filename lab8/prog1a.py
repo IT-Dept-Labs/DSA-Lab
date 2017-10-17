@@ -27,11 +27,16 @@ class Trie:
 	def search(self,key):
 		length=len(key)
 		trav=self.root
+		flag=False
 		for i in range(length):
-			if trav.children[self.getIndex(key[i])]==None and trav.end==True:
-				return False
-			else:
+			if trav.children[self.getIndex(key[i])]!=None and trav.end==False:
 				trav=trav.children[self.getIndex(key[i])]
+			if trav.end==True:
+				flag=True
+
+		if not flag:
+				return False
+
 		return True
 
 		
@@ -44,8 +49,11 @@ def main():
 	t.insert('abcd')
 	t.insert('acd')
 	#t.printTrie()
-	print(t.search('abcd'))
-	print(t.search('abc'))
+	print("Press 0 to quit")
+	x=input("Enter the word: ")
+	while x!='0':
+		x=input("Enter the word: ")
+		t.insert(x)
 
 
 if __name__ == '__main__':
