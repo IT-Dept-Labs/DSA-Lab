@@ -1,4 +1,2 @@
-import math
-a=[]
-#a.append(
-print(math.floor(7/3))
+for i in range(5,-1,-1):
+	print(i)
