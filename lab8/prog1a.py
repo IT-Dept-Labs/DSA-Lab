@@ -46,14 +46,20 @@ class Trie:
 
 def main():
 	t=Trie()
-	t.insert('abcd')
-	t.insert('acd')
-	#t.printTrie()
-	print("Press 0 to quit")
-	x=input("Enter the word: ")
-	while x!='0':
-		x=input("Enter the word: ")
-		t.insert(x)
+	t.insert('action')
+	t.insert('apple')
+	t.insert('hello')
+	print(t.search('hello'))
+	print(t.search('act'))
+	
+
+
+
+	# print("Press 0 to quit")
+	# x=input("Enter the word: ")
+	# while x!='0':
+	# 	x=input("Enter the word: ")
+	# 	t.insert(x)
 
 
 if __name__ == '__main__':
