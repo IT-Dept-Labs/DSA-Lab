@@ -7,7 +7,7 @@ class ListNode:
 
 
 class HashMap:
-    arr=[None for i in range(30)]
+    arr=[]
 
     def componentSum(self, string):
         s = 0
