@@ -22,7 +22,6 @@ class Graph:
 	def __init__ (self,n,m):
 		self.nv=n
 		self.ne=m
-		self.am=[[0 for i in range(self.nv)] for i in range(self.nv)]
 		self.al=[[] for i in range(self.nv)]
 		self.vertices=[Node(i) for i in range(self.nv)]
 		self.comp=[0 for i in range(self.nv)]
@@ -42,13 +41,6 @@ class Graph:
 				if self.am[i][j]== 1:
 					self.al[i].append(j)
 	
-	def getAm(self):
-		print("The adjacency matrix is:")
-		for i in range(self.nv):
-			for j in range(self.nv):
-				print(self.am[i][j],end=" ")
-			print()
-
 	def getAl(self):
 		print("The adjacency list is:")
 		for i in range(self.nv):
